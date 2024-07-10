@@ -6,17 +6,18 @@ export const GiftExpertApp = () =>{
 
     const [categorias, setCategorias] = useState([ 'Marvel', 'Dc' ])
 
-    const onAddCategory = () =>{
-        setCategorias([ 'valorant',...categorias])
+    const onAddCategory = (newCategory) =>{
+        console.log(newCategory);
+        setCategorias([ newCategory,...categorias])
     }
 
     return(
         <>
             <h1>GiftExpertApp</h1>
             
-            <AddCategory setCategorys={ setCategorias } />
+            <AddCategory onNewCategory={ onAddCategory } />
 
-            <button onClick={onAddCategory}>Agregar</button>
+            {/* <button onClick={onAddCategory}>Agregar</button> */}
             <ol>
                 { categorias.map( category =>{
                     return(

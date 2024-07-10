@@ -1,7 +1,7 @@
 import { useState } from "react"
 
-export const AddCategory = ({setCategorys}) => {
-    const [inputValue, SetInputValue] = useState('Valorant')
+export const AddCategory = ( {onNewCategory} ) => {
+    const [inputValue, SetInputValue] = useState('')
    
     const OnInputChange = ({target}) =>{
         SetInputValue(target.value)
@@ -9,12 +9,18 @@ export const AddCategory = ({setCategorys}) => {
 
     const onSubmit = ( event ) =>{
         event.preventDefault();
-        console.log(inputValue);
-        setCategorys( categorias => [inputValue, ...categorias] )
+        if(inputValue.trim().length <= 1) return; 
+
+
+        // setCategorys( categorias => [inputValue, ...categorias] )
+
+        onNewCategory(inputValue.trim())
+
+        SetInputValue('');
     }
     
     return(
-        <form onSubmit={ (event) => onSubmit(event)} action="">
+        <form onSubmit={ onSubmit} action="">
             <input 
             type="text" 
             placeholder="Buscar gift" 
