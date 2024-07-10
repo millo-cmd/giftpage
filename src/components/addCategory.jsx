@@ -24,3 +24,5 @@ export const AddCategory = ({setCategorys}) => {
         
     )
 }
+
+// esto no es nada importante
